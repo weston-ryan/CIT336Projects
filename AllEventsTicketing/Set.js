@@ -1,6 +1,6 @@
 function Set() {
 	
-	
+//Intersection
 	this.intersection = function(listA, listB) {
     
 	   var resultList = []; /* create a resultList array */
@@ -31,6 +31,9 @@ function Set() {
 
 	   var resultList = [];
 
+        if (listA === null || listB === null) { /* check for valid inputs*/
+            return null; // exit and return null to indicate an error
+
 
         //get the symmetric difference of listA and ListB
 		//append the returned elements to the result set
@@ -40,13 +43,13 @@ function Set() {
        for (var i = listB.length-1; i >= 0; -- i)
        	obj[listB[i]] = listB[i];
 
-       for (var k in resultList) {
-       	if (resultList.hasOwnProperty(k))
-       		resultList.push(obj[k]);
-	   }
-
-		//get the intersection of listA and listB
-		//append the returned elements to the result set
+            var a = this.concat();
+            for(var i=0; i<a.length; ++i) {
+                for(var j=i+1; j<a.length; ++j) {
+                    if(a[i] === a[j])
+                        a.splice(j--, 1);
+                }
+            }
 
 	   return resultList;  //return the result
 	}
@@ -59,57 +62,49 @@ function Set() {
 
 	   var resultList = [];
 
-	Comparison = (listA, listB) => listA.id !== listB.id,
-		resultList = listB.filter(listB => listA.every(listA => comparison(listA, listB)));
-
+        if (listA === null || listB === null) { /* check for valid inputs*/
+            return null; // exit and return null to indicate an error
 
         //select everything in listA but not in listB  or  A \ B
 		// a - b = {}
+            for (var i = 0; i < listA.length; i++) {  //for every element in listA
+                var nextValue = listA[i]; // get next value in the list
+            }
 
-		//select everything in listB but not in listA
-           comparison = (listA, ListB) => listB.id !== listA.id,
-			   resultList = listA.filter(listA => listB.every(listB => comparison(listA,listB)));
+            for( var i = 0; i < listB.length; i++) {
+            break;}
+        }
+
 
 	   return resultList;
 	}
+
 
 
 //Symmetric
 
 	this.symmetricDifference = function(listA, listB) {
 
-	   var resultList = [];
+        var resultList = [];
+
+        for (var i = 0; i < listA.length; i++) {  //for every element in listA
+            var nextValue = listA[i]; // get next value in the list
 
 
-        var name;
-        var index = {};
-        for(var i in arguments){
-            name = arguments[i];
+            for (var j = 0; j < listB.length; j++) { // for every element in listB
 
-            for(var j = 0; j < name.length; j++){
-                arr.push(name[j]);
-            }
+                if (listB[j] === nextValue) { // this listB element equals nextValue
+                    break;//if listA if found in listB then break.
+
+					if (listB[j]!== nextValue) {
+                        resultList.push(listA[j]); // add listB element to end of resultList
+                                                   // push adds the current item in j to the end of the result list
+                        break;  // break the listB inner loop and exit
+
+                    }
+                    resultList = ListA.concat(listB);
+                }
         }
-
-        arr.forEach(function(a){
-            if(!index[a]){
-                index[a] = 0;
-            }
-            index[a]++;
-
-        });
-
-        for(var l in index){
-            if(index[l] === 1){
-                resultList.push(+l);
-            }
-        }
-        //Get the relativeCompliment of ListA and ListB
-		//copy returned elements to end of the resultList
-
-		//Get the relativeCompliment of SetB and SetA
-		//Copy returned elements to end of resultList
-
 	   return resultList;  //return the results
 	}
 
