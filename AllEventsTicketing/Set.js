@@ -35,22 +35,23 @@ function Set() {
         for (var i = 0; i < listA.length; i++) {  //set the element in listA (i) to start at 0, if it is less than the list length, continue.
             var nextValue = listA[i]; // assign the listA item [i] to nextValue
             var found = false; //if an item is found set it to false and continue to the next step
-
+            if (found === false);  { //if an item is found false, then push the item to the resultList.
+                resultList.push(nextValue);
+            }
+        }
             for (var j = 0; j < listB.length; j++) { // for every element in listB,  If the element is less than the list length continue
 
                 if (listB[j] === nextValue) { // if the listB item [j] is an equal value and type to nextValue[i], then it is true.
                     found = true;
-
-
                     break;//if listA if found in listB then break.
                 }
             }
             if (found === false) {  //  if [j] was found true, set found to false and push to the result list.
-
                 resultList.push(nextValue);  // create a list and push the found items(nextValue) to the resultList at the end.
+
             }
 
-        }
+
         return resultList;  //return the results
     }
 
@@ -81,6 +82,7 @@ function Set() {
                 if (found === false) {  //  if [j] was found true, set found to false and push to the result list.
 
                     resultList.push(nextValue);  // create a list and push the found items(nextValue) to the resultList at the end.
+
                 }
 
             }
@@ -94,28 +96,26 @@ function Set() {
 
         var resultList = [];
 
-        for (var i = 0; i < listA.length; i++) {  //for every element in listA, If the element is less than the list length continue
+        for (var i = 0; i < listA.length; i++) {  //set the element in listA (i) to start at 0, if it is less than the list length, continue.
             var nextValue = listA[i]; // assign the listA item [i] to nextValue
             var found = false; //if an item is found set it to false and continue to the next step
-
-            for (var j = 0; j < listB.length; j++) { // for every element in listB,  If the element is less than the list length continue
-
-                if (listB[j] === nextValue) { // if the listB item [j] is an equal value and type to nextValue[i], then it is true.
-                    found = true;
-
-                    break;//if listA if found in listB then break.
-                }
-
-
+            if (found === false);  { //if an item is found false, then push the item to the resultList.
+                resultList.push(nextValue);
             }
-            if (found === false) {  //  if [j] was found true, set found to false and push to the result list.
+        }
+        for (var j = 0; j < listB.length; j++) { // for every element in listB,  If the element is less than the list length continue
 
-                resultList.push(nextValue);  // create a list and push the found items(nextValue) to the resultList at the end.
+            if (listB[j] === nextValue) { // if the listB item [j] is an equal value and type to nextValue[i], then it is true.
+                found = true;
+                break;//if listA if found in listB then break.
             }
+        }
+        if (found === false) {  //  if [j] was found true, set found to false and push to the result list.
+            resultList.push(nextValue);// create a list and push the found items(nextValue) to the resultList at the end.
 
         }
+
+
         return resultList;  //return the results
     }
-
-
 }
